@@ -1,0 +1,55 @@
+---
+title: "DEA.rmd"
+output: html_document
+---
+
+```{r}
+library("lpSolveAPI")
+x <- read.lp("DEA2.lp")
+x
+```
+
+```{r}
+solve(x)
+get.objective(x)
+
+```
+
+```{r}
+get.constraints(x)
+
+```
+
+```{r}
+get.variables(x)
+```
+
+install.packages("benchmarking)
+library("benchmarking")
+```{r}
+install.packages("Benchmarking")
+library("Benchmarking")
+```
+
+```{r}
+x <- matrix(c(100,100,100,100,100))
+y <- matrix(c(10,15,20,23,30,31,25,30,23,20),ncol = 2)
+x
+y
+colnames(y) <- c("loans","deposits")
+y
+
+
+
+
+```
+
+```{r}
+e <- dea(x,y,RTS = "crs")
+e
+peers(e)
+lambda(e)
+dea.plot(x,y,RTS = "crs")
+```
+
+
